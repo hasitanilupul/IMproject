@@ -24,6 +24,7 @@ export class AuthService {
 
   // Firebase SignInWithPopup
   OAuthProvider(provider) {
+
     return this.afAuth.auth.signInWithPopup(provider)
       .then((res) => {
         this.ngZone.run(() => {
