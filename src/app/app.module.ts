@@ -15,6 +15,7 @@ import {MembersComponent} from './members/members.component';
 import {NewsFeedComponent} from './news-feed/news-feed.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
+import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ProfileComponent } from './profile/profile.component';
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

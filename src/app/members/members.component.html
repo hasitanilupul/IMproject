@@ -1,11 +1,7 @@
-<p>members works!</p>
-
-{{ auth.user.displayName }}
-
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-6">
-      <form [formGroup]="form">
+      <form [formGroup]="form" *ngIf="form">
         <div class="form-group">
           <textarea rows="4" class="form-control" formControlName="content" placeholder="Type here to post"></textarea>
         </div>
@@ -15,8 +11,12 @@
     <div class="col-12 col-md-6">
       List of current posts
       <div *ngFor="let post of news">
-        {{post | json}}
+        <img [src]="post.avatar" width="48" height="48">
+        <h2>{{post.addedBy}}</h2>
+        <span>{{post.addedOn | date}}</span>
+        <p>{{post.content}}</p>
       </div>
+      <button class="btn btn-primary" (click)="getNews()" *ngIf="more">Load more</button>
     </div>
   </div>
 </div>
