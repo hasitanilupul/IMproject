@@ -1,26 +1,31 @@
-<div class="image">
-<div class="container" id="container" style="width: 500px; background-color: rgba(255, 255, 255, 0.342); position: relative; top: 2cm; border-radius: 15px;">
-  <form>
-    <br>
-    <h1 align=center>Welcome to GR App</h1>
-    <div class="container">
+<img src="../../assets/e2.jpg" class="back">
+<div>
+
+  <div class="container" id="container"
+       style="width: 80%; background-color: rgba(255, 255, 255, 0.342); position: relative; top: 20vh; min-height: 60vh; border-radius: 15px;">
+    <form>
       <br>
-      <button type="button" class="btn btn-primary btn-block" (click)="authService.SigninWithGoogle()">Sign in with
-        Google
-      </button><br>
+      <h1 align=center>Welcome to GR App</h1>
+      <div class="container">
+        <br>
+        <button type="button" class="btn btn-primary btn-block" (click)="authService.SigninWithGoogle()">Sign in with
+          Google
+        </button>
+        <br>
 
-    </div>
+      </div>
 
-    <p align="center">Or use your account</p><br>
-    <div class="form-group">
-      <label for="email">Enter Email</label>
-      <input class="form-control" type="email" placeholder="Email" /><br>
-      <label for="password">Enter Password</label>
-      <input class="form-control" type="password" placeholder="Password" /><br>
-      <span class="btn btn-primary" (click)=login()>LOGIN</span>
-      <!-- <div class="button"></div> -->
-      <span class="btn btn-secondory" routerLink="/signup">SignUp</span>
-    </div>
-  </form><br>
-</div>
+      <p align="center">Or use your account</p><br>
+      <div class="form-group">
+        <label for="email">Enter Email</label>
+        <input class="form-control" type="email" placeholder="Email"/><br>
+        <label for="password">Enter Password</label>
+        <input class="form-control" type="password" placeholder="Password"/><br>
+        <span class="btn btn-primary" (click)=login()>LOGIN</span>
+        <!-- <div class="button"></div> -->
+        <span class="btn btn-secondory" routerLink="/signup">SignUp</span>
+      </div>
+    </form>
+    <br>
+  </div>
 </div>

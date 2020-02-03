@@ -1,5 +1,7 @@
-.image{
-    height:45em; background-size:cover; width:auto;
-    background-image:url('G:\ANgular project\IMproject\src\assets\e2.jpg');
-    background-position:50% 50%;
-  }
+.image {
+  height: 100vh;
+  background-size: cover;
+  width: auto;
+  background-image: url('../../assets/e2.jpg');
+  background-position: 50% 50%;
+}
