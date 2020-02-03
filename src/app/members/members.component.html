@@ -1,1 +1,22 @@
 <p>members works!</p>
+
+{{ auth.user.displayName }}
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <form [formGroup]="form">
+        <div class="form-group">
+          <textarea rows="4" class="form-control" formControlName="content" placeholder="Type here to post"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-100" (click)="onPost()">Post</button>
+      </form>
+    </div>
+    <div class="col-12 col-md-6">
+      List of current posts
+      <div *ngFor="let post of news">
+        {{post | json}}
+      </div>
+    </div>
+  </div>
+</div>
