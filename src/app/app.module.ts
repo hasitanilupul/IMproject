@@ -14,6 +14,7 @@ import {SignupComponent} from './signup/signup.component';
 import {MembersComponent} from './members/members.component';
 import {NewsFeedComponent} from './news-feed/news-feed.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     EmailComponent,
     SignupComponent,
     MembersComponent,
-    NewsFeedComponent
+    NewsFeedComponent,
+    ProfileComponent
   ],
   imports: [
     // NoopAnimationsModule,
