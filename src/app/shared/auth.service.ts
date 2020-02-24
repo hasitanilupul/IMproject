@@ -1,8 +1,9 @@
-import {Injectable, NgZone} from '@angular/core';
-import {auth} from 'firebase/app';
-import {User} from './user';
-import {Router} from '@angular/router';
-import {AngularFireAuth} from '@angular/fire/auth';
+import { Injectable, NgZone } from '@angular/core';
+import { auth } from 'firebase/app';
+import { User } from './user';
+import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,11 @@ export class AuthService {
     public router: Router,
     public ngZone: NgZone,
     public afAuth: AngularFireAuth,
-    private angularFireAuth: AngularFireAuth
+    private angularFireAuth: AngularFireAuth,
+    private firestore: AngularFirestore
   ) {
     this.afAuth.authState.subscribe(user => {
+      console.log(user);
       this.user = user;
     });
 
@@ -27,6 +30,26 @@ export class AuthService {
 
     return this.afAuth.auth.signInWithPopup(provider)
       .then((res) => {
+        /* this.firestore.collection('user').doc(res.user.uid).get().toPromise()
+        .then(value => {
+          if(!value.data()){
+            this.firestore.collection('user').doc(res.user.uid).set(
+              {
+                Name: res.user.displayName,
+                Email: res.user.email,
+                DOB: ''
+              }
+            )
+          }
+        })
+        .catch(err => console.log(err)) */
+        this.firestore.collection('user').doc(res.user.uid).set(
+          {
+            Name: res.user.displayName,
+            Email: res.user.email,
+            DOB: ''
+          }
+        )
         this.ngZone.run(() => {
           this.router.navigate(['members']);
         });
@@ -50,5 +73,13 @@ export class AuthService {
       this.router.navigate(['login']);
     });
   }
+
+  // async getUser() {
+  //   await this.afAuth.authState.pipe(). .subscribe(user => {
+  //     console.log(user);
+  //     this.user = user;
+  //   });
+  //   return this.user;
+  // }
 
 }

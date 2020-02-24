@@ -16,7 +16,7 @@ import {NewsFeedComponent} from './news-feed/news-feed.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
-
+import {ProfileService} from './profile/profile.service' ;
 
 @NgModule({
   declarations: [
@@ -38,7 +38,7 @@ import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore'
     ReactiveFormsModule,
     AngularFirestoreModule
   ],
-  providers: [],
+  providers: [ProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
