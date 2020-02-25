@@ -20,7 +20,10 @@ export class AuthService {
   ) {
     this.afAuth.authState.subscribe(user => {
       console.log(user);
-      this.user = user;
+      this.user.chat = [null];
+      this.user.displayName = user.displayName;
+      this.user.email = user.email;
+      this.user.photoURL = user.photoURL;
     });
 
   }
@@ -47,9 +50,10 @@ export class AuthService {
           {
             Name: res.user.displayName,
             Email: res.user.email,
-            DOB: ''
+            DOB: '',
+            chat: []
           }
-        )
+        );
         this.ngZone.run(() => {
           this.router.navigate(['members']);
         });

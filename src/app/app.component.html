@@ -1,2 +1,5 @@
-
-<router-outlet></router-outlet>
+<app-nav *ngIf="!router.url.includes('login')"></app-nav>
+<div style="height: 84px" *ngIf="!router.url.includes('login')"></div>
+<div>
+  <router-outlet></router-outlet>
+</div>

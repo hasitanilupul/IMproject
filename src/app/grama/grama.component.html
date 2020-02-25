@@ -1,7 +1,7 @@
 <div class="container">
-  <h1>Public feed</h1>
-  <div class="row">
-    <div class="col-12 col-md-6">
+  <div class="col">
+    <div>
+      <h1>Only visible for gramasewaka</h1>
       <form [formGroup]="form" *ngIf="form">
         <div class="form-group">
           <textarea rows="4" class="form-control" formControlName="content" placeholder="Type here to post"></textarea>
@@ -9,13 +9,14 @@
         <button type="submit" class="btn btn-primary w-100 mb-4" (click)="onPost()">Post</button>
       </form>
     </div>
-    <div class="col-12 col-md-6">
+
+    <h1>Visible for all</h1>
+    <div>
       <div *ngFor="let post of news" class="card mt-2">
         <div class="card-header">
           <div class="row">
-            <img [src]="post.avatar" width="48" height="48" class="rounded-circle ml-3">
             <div class="ml-3">
-              <h2 class="card-title">{{post.addedBy}}</h2>
+              <h2 class="card-title">Posted by GramaSewaka</h2>
               <span class="card-subtitle">{{post.addedOn | date}}</span>
             </div>
           </div>
@@ -25,7 +26,7 @@
           <p>{{post.content}}</p>
         </div>
 
-        <div class="card-footer">
+        <!--<div class="card-footer">
           <div class="row">
             <div class="col-6 p-2 text-center">
               <button class="btn btn-danger w-100">Report</button>
@@ -34,7 +35,7 @@
               <button class="btn btn-primary w-100">Comment</button>
             </div>
           </div>
-        </div>
+        </div>-->
 
       </div>
       <div class="w-100 text-center mt-5 mb-3">

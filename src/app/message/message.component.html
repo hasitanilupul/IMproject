@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>View for normal person</h1>
+  <form [formGroup]="form" *ngIf="form">
+    <div class="form-group">
+      <textarea rows="4" class="form-control" formControlName="content" placeholder="Type here to post"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary w-100 mb-4" (click)="sendMessage()">Post</button>
+  </form>
+
+
+  <div *ngFor="let post of news" class="card mt-2">
+    {{post.message}}
+    {{post.sent}}
+    <!--        {{post.addedOn | date}}-->
+
+  </div>
+  <div class="w-100 text-center mt-5 mb-3">
+    <button class="btn btn-primary" (click)="getMessages()" *ngIf="more">Load more</button>
+  </div>
+
+  <h1>View for GS</h1>
+
+  <div *ngFor="let post of people" class="card mt-2">
+    {{post.name}} sent a new message
+    <!--        {{post.addedOn | date}}-->
+
+  </div>
+  <div class="w-100 text-center mt-5 mb-3">
+    <button class="btn btn-primary" (click)="getMessages()" *ngIf="more">Load more</button>
+  </div>
+</div>

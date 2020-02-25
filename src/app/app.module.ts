@@ -16,7 +16,11 @@ import {NewsFeedComponent} from './news-feed/news-feed.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
-import {ProfileService} from './profile/profile.service' ;
+import { NavComponent } from './nav/nav.component';
+
+import {ProfileService} from './profile/profile.service';
+import { MessageComponent } from './message/message.component';
+import { GramaComponent } from './grama/grama.component' ;
 
 @NgModule({
   declarations: [
@@ -26,7 +30,10 @@ import {ProfileService} from './profile/profile.service' ;
     SignupComponent,
     MembersComponent,
     NewsFeedComponent,
-    ProfileComponent
+    ProfileComponent,
+    NavComponent,
+    MessageComponent,
+    GramaComponent
   ],
   imports: [
     // NoopAnimationsModule,

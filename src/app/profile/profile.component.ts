@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { ProfileService } from './profile.service';
-import { Profile } from '../shared/profile';
-
+import {Component, OnInit} from '@angular/core';
+import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {ProfileService} from './profile.service';
+import {Profile} from '../shared/profile';
 
 
 @Component({
@@ -15,24 +14,24 @@ import { Profile } from '../shared/profile';
 
 export class ProfileComponent implements OnInit {
 
-  uesers : Profile[];
+  uesers: Profile[];
 
-  constructor(private profileService : ProfileService) {
-   
-   }
+  constructor(private profileService: ProfileService) {
+
+  }
 
   ngOnInit() {
     this.profileService.getAllUsers().snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>
-          ({ key: c.payload.doc.id, ...c.payload.doc.data() })
+          ({key: c.payload.doc.id, ...c.payload.doc.data()})
         )
       )
-    ).subscribe(x=> {
+    ).subscribe(x => {
       this.uesers = x;
       console.log(this.uesers);
-  });
-}
+    });
+  }
 
   // getProfile() {
   //   console.log(this.auth.getUser());
